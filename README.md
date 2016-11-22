@@ -74,6 +74,7 @@ Building iperf3
     sudo -i
     cd <iperf install directory>
     ./configure; make; make install
+    exit
 
 (Note: If configure fails, try running `./bootstrap.sh` first)
 
