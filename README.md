@@ -44,23 +44,21 @@ Source code and issue tracker: https://github.com/esnet/iperf
 Obtaining iperf3
 ----------------
 
-Downloads of iperf3 are available at:
+To check out the most recent code via git:
 
-    http://downloads.es.net/pub/iperf/
-
-To check out the most recent code, clone the git repository at:
-
-    https://github.com/esnet/iperf.git
+    git clone https://github.com/randomInteger/iperf.git
 
 Building iperf3
 ---------------
 
 ### Prerequisites: ###
 
-None.
+Debian:  sudo apt-get update; sudo apt-get upgrade; sudo apt-get install build-essential
 
-### Building ###
+### Building (debian) ###
 
+    sudo -i
+    cd <iperf install directory>
     ./configure; make; make install
 
 (Note: If configure fails, try running `./bootstrap.sh` first)
