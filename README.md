@@ -1,5 +1,59 @@
 NOTE:  This is a fork of the work done at https://github.com/dmdailey/iperf.  I intend to change very little or nothing on this fork, I just wanted to preserve it.  This version differs from the esnet version in that it *should* contain a fix that solves the issue of the iperf3 server hanging and needing a manual restart when a TCP or UDP connection is abruptly terminated.  The offical esnet version of iperf3 hangs and requires a manual restart.
 
+Here is the result of an abrupt disconnect in both TCP and UDP mode to show that this patch fixes the "hung iperf3 server" issue:
+
+TCP:
+-----------------------------------------------------------
+Server listening on 5201
+-----------------------------------------------------------
+Accepted connection from 192.168.0.2, port 56558
+[  5] local 192.168.255.250 port 5201 connected to 192.168.0.2 port 56560
+[ ID] Interval           Transfer     Bandwidth
+[  5]   0.00-1.00   sec  11.9 MBytes   100 Mbits/sec
+[  5]   1.00-2.00   sec  13.4 MBytes   113 Mbits/sec
+[  5]   2.00-3.00   sec  13.1 MBytes   110 Mbits/sec
+[  5]   3.00-4.00   sec  5.69 MBytes  47.7 Mbits/sec
+[  5]   4.00-5.00   sec  0.00 Bytes  0.00 bits/sec
+[  5]   5.00-6.00   sec  0.00 Bytes  0.00 bits/sec
+[  5]   6.00-7.00   sec  0.00 Bytes  0.00 bits/sec
+[  5]   7.00-8.00   sec  0.00 Bytes  0.00 bits/sec
+[  5]   8.00-9.00   sec  0.00 Bytes  0.00 bits/sec
+[  5]   9.00-10.00  sec  0.00 Bytes  0.00 bits/sec
+[  5]  10.00-11.00  sec  0.00 Bytes  0.00 bits/sec
+[  5]  11.00-12.00  sec  0.00 Bytes  0.00 bits/sec
+[  5]  12.00-13.00  sec  0.00 Bytes  0.00 bits/sec
+[  5]  13.00-14.00  sec  0.00 Bytes  0.00 bits/sec
+iperf3: error - select failed: Bad file descriptor
+-----------------------------------------------------------
+Server listening on 5201
+-----------------------------------------------------------
+
+UDP:
+-----------------------------------------------------------
+Server listening on 5201
+-----------------------------------------------------------
+Accepted connection from 192.168.0.2, port 57388
+[  5] local 192.168.255.250 port 5201 connected to 192.168.0.2 port 44652
+[ ID] Interval           Transfer     Bandwidth       Jitter    Lost/Total Datagrams
+[  5]   0.00-1.00   sec  7.18 MBytes  60.2 Mbits/sec  0.101 ms  41/960 (4.3%)
+[  5]   1.00-2.00   sec  7.81 MBytes  65.5 Mbits/sec  0.108 ms  0/1000 (0%)
+[  5]   2.00-3.00   sec  7.81 MBytes  65.5 Mbits/sec  0.075 ms  0/1000 (0%)
+[  5]   3.00-4.00   sec  7.81 MBytes  65.5 Mbits/sec  0.111 ms  0/1000 (0%)
+[  5]   4.00-5.00   sec  3.88 MBytes  32.5 Mbits/sec  0.165 ms  0/496 (0%)
+[  5]   5.00-6.00   sec  0.00 Bytes  0.00 bits/sec  0.165 ms  0/0 (0%)
+[  5]   6.00-7.00   sec  0.00 Bytes  0.00 bits/sec  0.165 ms  0/0 (0%)
+[  5]   7.00-8.00   sec  0.00 Bytes  0.00 bits/sec  0.165 ms  0/0 (0%)
+[  5]   8.00-9.00   sec  0.00 Bytes  0.00 bits/sec  0.165 ms  0/0 (0%)
+[  5]   9.00-10.00  sec  0.00 Bytes  0.00 bits/sec  0.165 ms  0/0 (0%)
+[  5]  10.00-11.00  sec  0.00 Bytes  0.00 bits/sec  0.165 ms  0/0 (0%)
+[  5]  11.00-12.00  sec  0.00 Bytes  0.00 bits/sec  0.165 ms  0/0 (0%)
+[  5]  12.00-13.00  sec  0.00 Bytes  0.00 bits/sec  0.165 ms  0/0 (0%)
+[  5]  13.00-14.00  sec  0.00 Bytes  0.00 bits/sec  0.165 ms  0/0 (0%)
+iperf3: error - select failed: Bad file descriptor
+-----------------------------------------------------------
+Server listening on 5201
+-----------------------------------------------------------
+
 
 
 iperf3:  A TCP, UDP, and SCTP network bandwidth measurement tool
