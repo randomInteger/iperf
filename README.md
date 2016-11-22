@@ -3,11 +3,11 @@ NOTE:  This is a fork of the work done at https://github.com/dmdailey/iperf.  I 
 Here is the result of an abrupt disconnect in both TCP and UDP mode to show that this patch fixes the "hung iperf3 server" issue:
 
 TCP:
-<img src="https://github.com/randomInteger/iperf/blob/master/Screen%20Shot%202016-11-22%20at%2012.09.47%20PM.png" width="400" heighth="400">
+<img src="https://github.com/randomInteger/iperf/blob/master/Screen%20Shot%202016-11-22%20at%2012.09.47%20PM.png" width="600" heighth="400">
 
 
 UDP:
-<img src="https://github.com/randomInteger/iperf/blob/master/Screen%20Shot%202016-11-22%20at%2012.09.56%20PM.png" width="400" heighth="400">
+<img src="https://github.com/randomInteger/iperf/blob/master/Screen%20Shot%202016-11-22%20at%2012.09.56%20PM.png" width="600" heighth="400">
 
 
 
