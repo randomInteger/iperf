@@ -51,9 +51,8 @@ To check out the most recent code via git:
 Building iperf3
 ---------------
 
-### Prerequisites: ###
+### Prerequisites (Debian/Ubuntu): ### 
 
-Debian:  
     sudo apt-get update
     sudo apt-get upgrade
     sudo apt-get install build-essential
