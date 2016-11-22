@@ -1,5 +1,7 @@
 NOTE:  This is a fork of the work done at https://github.com/dmdailey/iperf.  I intend to change very little or nothing on this fork, I just wanted to preserve it.  This version differs from the esnet version in that it DOES contain a fix that solves the issue of the iperf3 server hanging and needing a manual restart when a TCP or UDP connection is abruptly terminated.  The offical esnet version of iperf3 hangs and requires a manual restart.
 
+The solution was a change in https://github.com/randomInteger/iperf/blob/master/src/iperf_server_api.c that will now wait exactly 5 seconds after the session time window has elapsed and then kill that specific server process, and start a new one.  No more manual/scripted restart of the iperf3 server is required to recover from an abruptly disconnected session.  
+
 Here is the result of an abrupt disconnect in both TCP and UDP mode to show that this patch fixes the "hung iperf3 server" issue:
 
 TCP:
